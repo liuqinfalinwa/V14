@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  -->
+
+<odoo>
+    <data>
+        <record id="view_move_form_jdy_inherit" model="ir.ui.view">
+            <field name="name">account.move.form.jdy</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='price_unit']" position="before">
+                    <field name="jdy_analytic_dept" groups="account_integration_jdy.group_show_analytic_department"/>
+                    <field name="jdy_analytic_emp" groups="account_integration_jdy.group_show_analytic_employee"/>
+                    <field name="jdy_analytic_other" groups="account_integration_jdy.group_show_analytic_other"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="精斗云属性" name="jdy_properties">
+                        <group>
+                            <group>
+                                <field name="jdy_sync" readonly="1"/>
+                                <field name="jdy_bill_no" readonly="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
+                <xpath expr="//header" position="inside">
+                    <field name="jdy_journal_sync" invisible="1"/>
+                    <button string="强制同步到精斗云"
+                            name="sync_account_move_to_jdy"
+                            type="object"
+                            class="btn-secondary"
+                            attrs="{'invisible':['|',('jdy_journal_sync','=',False),('move_type', 'in', ('in_invoice', 'in_refund', 'in_receipt','out_invoice', 'out_refund', 'out_receipt'))]}"
+                            confirm="请确认精斗云中已删除上过的分录"/>
+                    <button string="上传到精斗云其他应收"
+                            name="sync_invoice_to_jdy"
+                            type="object"
+                            class="btn-secondary"
+                            attrs="{'invisible':['|',('jdy_sync','=',True),('move_type','not in',['out_invoice', 'out_refund', 'out_receipt'])]}"
+                            confirm="发票只能上传一次，上传后将无法重新再上传"/>
+                    <button string="上传到精斗云其他应付"
+                            name="sync_bill_to_jdy"
+                            type="object"
+                            class="btn-secondary"
+                            attrs="{'invisible':['|',('jdy_sync','=',True),('move_type','not in',['in_invoice', 'in_refund', 'in_receipt'])]}"
+                            confirm="账单只能上传一次，上传后将无法重新再上传"/>
+                </xpath>
+
+                <field name="ref" position="after">
+                    <field name="jdy_income_type"
+                           attrs="{'invisible': [('move_type', 'not in', ['out_invoice', 'out_refund', 'out_receipt'])]}"/>
+                    <field name="jdy_pay_type"
+                           attrs="{'invisible': [('move_type', 'not in', ['in_invoice', 'in_refund', 'in_receipt'])]}"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  -->
+
+<odoo>
+    <data>
+        <record id="view_jdy_voucher_type_list" model="ir.ui.view">
+            <field name="name">jdy.voucher.type.list</field>
+            <field name="model">jdy.voucher.type</field>
+            <field name="arch" type="xml">
+                <tree string="其他收入/其他支出类别">
+                    <field name="jdy_id"/>
+                    <field name="number"/>
+                    <field name="name"/>
+                    <field name="voucher_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_jdy_voucher_type_form" model="ir.actions.act_window">
+            <field name="name">收入支出类别</field>
+            <field name="res_model">jdy.voucher.type</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_jdy_voucher_type_list"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                待同步类别
+              </p>
+            </field>
+        </record>
+
+        <menuitem action="action_jdy_voucher_type_form"
+                  id="menu_action_jdy_voucher_type_form"
+                  parent="account.account_account_menu"
+                  groups="account.group_account_user"
+                  sequence="15"/>
+    </data>
+</odoo>

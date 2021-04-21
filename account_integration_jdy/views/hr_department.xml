@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  -->
+
+<odoo>
+    <data>
+        <record id="view_department_form_jdy_inherit" model="ir.ui.view">
+            <field name="name">hr.department.form.jdy</field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="after">
+                    <notebook>
+                        <page string="精斗云属性" name="jdy_properties">
+                            <group>
+                                <group>
+                                    <field name="jdy_id" readonly="1"/>
+                                    <field name="jdy_number" readonly="1"/>
+                                    <field name="jdy_parent_id" readonly="1"/>
+                                    <field name="jdy_sync" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button string="强制同步到精斗云" name="sync_dept_to_jdy" type="object" class="btn-secondary"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

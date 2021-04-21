@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  -->
+
+<odoo>
+    <data>
+        <record id="view_partner_form_jdy_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.jdy</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="精斗云属性" name="jdy_partner_properties">
+                        <group>
+                            <group>
+                                <field name="jdy_customer_id" readonly="1"/>
+                                <field name="jdy_customer_number" readonly="1"/>
+                                <field name="jdy_customer_sync" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="jdy_supplier_id" readonly="1"/>
+                                <field name="jdy_supplier_number" readonly="1"/>
+                                <field name="jdy_supplier_sync" readonly="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button string="强制同步到精斗云" name="sync_partner_to_jdy" type="object" class="btn-secondary"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  -->
+
+<odoo>
+    <data>
+        <record id="view_account_form_jdy_inherit" model="ir.ui.view">
+            <field name="name">account.account.form.jdy</field>
+            <field name="model">account.account</field>
+            <field name="inherit_id" ref="account.view_account_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="after">
+                    <notebook>
+                        <page string="精斗云属性" name="jdy_properties">
+                            <group>
+                                <group>
+                                    <field name="jdy_accounttype_id" readonly="1"/>
+                                    <field name="jdy_accounttype_name" readonly="1"/>
+                                    <field name="jdy_accounttype_number" readonly="1"/>
+                                    <field name="jdy_level" readonly="1"/>
+                                    <field name="jdy_id" readonly="1"/>
+                                    <field name="jdy_parent_id" readonly="1"/>
+                                    <field name="jdy_dc" readonly="1"/>
+                                    <field name="jdy_help_code" readonly="1"/>
+                                    <field name="jdy_currencies" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="jdy_iscash" readonly="1"/>
+                                    <field name="jdy_iscashequivalent" readonly="1"/>
+                                    <field name="jdy_isbank" readonly="1"/>
+                                    <field name="jdy_isqty" readonly="1"/>
+                                    <field name="jdy_iscurrency" readonly="1"/>
+                                    <field name="jdy_rdbtnall" readonly="1"/>
+                                    <field name="jdy_ischangecurrency" readonly="1"/>
+                                    <field name="jdy_isassist" readonly="1"/>
+                                    <field name="jdy_enable" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  -->
+
+<odoo>
+    <data>
+        <record id="view_jdy_settlement_account_list" model="ir.ui.view">
+            <field name="name">jdy.settlement.account.list</field>
+            <field name="model">jdy.settlement.account</field>
+            <field name="arch" type="xml">
+                <tree string="结算账户">
+                    <field name="jdy_id"/>
+                    <field name="number"/>
+                    <field name="name"/>
+                    <field name="bank"/>
+                    <field name="account_name"/>
+                    <field name="account"/>
+                    <field name="enable"/>
+                    <field name="is_default"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_jdy_settlement_account_form" model="ir.actions.act_window">
+            <field name="name">结算账户</field>
+            <field name="res_model">jdy.settlement.account</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_jdy_settlement_account_list"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                待同步结算账户
+              </p>
+            </field>
+        </record>
+
+        <menuitem action="action_jdy_settlement_account_form"
+                  id="menu_action_jdy_settlement_account_form"
+                  parent="account.account_account_menu"
+                  groups="account.group_account_user"
+                  sequence="15"/>
+    </data>
+</odoo>

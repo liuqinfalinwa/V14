@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_jdy_analytic_account_user,jdy.analytic.account.account.user,account_integration_jdy.model_jdy_analytic_account,account.group_account_user,1,0,0,1
+access_jdy_voucher_type_user,jdy.voucher.type.account.user,account_integration_jdy.model_jdy_voucher_type,account.group_account_user,1,0,0,1
+access_jdy_settlement_type_user,jdy.settlement.type.account.user,account_integration_jdy.model_jdy_settlement_type,account.group_account_user,1,0,0,1
+access_jdy_settlement_account_user,jdy.settlement.account.account.user,account_integration_jdy.model_jdy_settlement_account,account.group_account_user,1,0,0,1

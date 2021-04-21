@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!--
+  -->
+
+<openerp>
+    <data>
+        <record id="res_config_settings_view_inherit_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.inherit.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" string="精斗云" data-key="account_integration_jdy">
+                        <h2>精斗云参数</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <field name="jdy_client_id"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="jdy_client_id"/>
+                                    <div class="text-muted">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <field name="jdy_client_secret"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="jdy_client_secret"/>
+                                    <div class="text-muted">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <field name="jdy_username"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="jdy_username"/>
+                                    <div class="text-muted">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <field name="jdy_password"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="jdy_password"/>
+                                    <div class="text-muted">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <field name="jdy_account_id"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="jdy_account_id"/>
+                                    <div class="text-muted">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>同步</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="批量同步部门到精斗云" type="object" class="btn-primary" name="action_sync_dept"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="从精斗云批量同步科目" type="object" class="btn-primary" name="action_sync_account"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="批量同步员工到精斗云" type="object" class="btn-primary" name="action_sync_emp"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="从精斗云批量同步辅助核算科目" type="object" class="btn-primary" name="action_sync_analytic_account"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="批量同步Partner到精斗云" type="object" class="btn-primary" name="action_sync_partner"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="从精斗云批量同步凭证字到账簿" type="object" class="btn-primary" name="action_sync_journal"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="批量同步客户发票到精斗云其他应收" type="object" class="btn-primary" name="action_sync_invoice"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="从精斗云批量同步其他收入与其他支出类别" type="object" class="btn-primary" name="action_sync_voucher_type"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="批量同步供应商账单到精斗云其他应付" type="object" class="btn-primary" name="action_sync_bill"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="从精斗云批量同步结算类型与账户" type="object" class="btn-primary" name="action_sync_settlement"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div>
+                                    <button string="批量同步分录到精斗云" type="object" class="btn-primary" name="action_sync_entries"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

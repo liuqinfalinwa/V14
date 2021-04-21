@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  -->
+
+<odoo>
+    <data>
+        <record id="view_jdy_analytic_account_list" model="ir.ui.view">
+            <field name="name">jdy.analytic.account.list</field>
+            <field name="model">jdy.analytic.account</field>
+            <field name="arch" type="xml">
+                <tree string="辅助核算科目">
+                    <field name="number"/>
+                    <field name="name"/>
+                    <field name="enable"/>
+                    <field name="group_number"/>
+                    <field name="group_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_jdy_analytic_account_form" model="ir.actions.act_window">
+            <field name="name">辅助核算科目</field>
+            <field name="res_model">jdy.analytic.account</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_jdy_analytic_account_list"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                待同步科目
+              </p>
+            </field>
+        </record>
+
+        <menuitem action="action_jdy_analytic_account_form"
+                  id="menu_action_jdy_analytic_account_form"
+                  parent="account.account_account_menu"
+                  groups="account.group_account_user"
+                  sequence="10"/>
+    </data>
+</odoo>
